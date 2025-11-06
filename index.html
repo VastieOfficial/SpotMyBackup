@@ -550,7 +550,7 @@ codeChallenge = base64encode(hashed);
   }
   if(accessToken!=null){
 
-    token = getToken(accessToken);
+    token = await getToken(accessToken);
     accessToken = token;
     // fetch my public playlists
     $.ajax({
