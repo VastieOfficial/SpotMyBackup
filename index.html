@@ -160,7 +160,7 @@ function login() {
       client_id: conf.client_id,
       redirect_uri: conf.redirect_uri,
       scope: 'playlist-read playlist-read-private playlist-modify-public playlist-modify-private user-library-read user-library-modify',
-      response_type: 'token',
+      response_type: 'code',
       show_dialog: 'true'
     };
     authWindow = window.open(
