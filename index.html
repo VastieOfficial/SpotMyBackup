@@ -108,7 +108,9 @@ function refreshTrackData(callback) {
         $('#pnlLoadingAccount').show();
         $('#loadingTitle').html('Please wait. Loading your playlists and tracks ...');
         refreshPlaylist(function () {
-            refreshMyMusicTracks(function () {
+            refreshMyMusicTracks(async function () {
+              await GetAlbums();
+              
                 // refreshStarredTracks(function () {
                     $('#loadingTitle').html('Finished loading, you now might want to export or import.');
                     isExporting = false;
@@ -608,6 +610,18 @@ function refreshMyMusicTracks(callback) {
 function loadTrackChunksWithTimeout(url, arr, callback, timeout) {
         setTimeout(function() { console.log("Taking breath, not to fast my cheetah"); loadTrackChunks(url, arr, callback) }, conf.slowdown_export);
 }
+
+const GetAlbums = (async(url='https://api.spotify.com/v1/me/albums?limit=50')=>{
+const r = (await (await fetch('https://api.spotify.com/v1/me/albums?limit=50', {headers: {"Authorization": "Bearer "+token}})).json())
+for(let i = 0; i< r.items.length; i++){
+	(await (await fetch('https://api.spotify.com/v1/albums/'+r.items[i]['album']['id'], {headers: {"Authorization": "Bearer "+token}})).json())['tracks']['items'].forEach(x=>{
+    arr.push({ id: x.id, uri: x.uri }); 
+  }); // I hope we'll have less than 50 fucking tracks in an album
+}
+if(r['next'] == null) return;
+return await GetAlbums(r['next']);
+});
+
 
 function loadTrackChunks(url, arr, callback) {
     $.ajax({
