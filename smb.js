@@ -374,7 +374,8 @@ function uriInTracks(uri, tracks, addCallback) {
 }
 
 function addToSaved(id) {
-    savedQueue.push('https://api.spotify.com/v1/me/tracks?ids='+id);
+    savedQueue.push('https://api.spotify.com/v1/me/tracks');
+    savedQueue.push('https://api.spotify.com/v1/me/albums');
 }
 
 function compareUriTracks(imported, stored, addCallback) {
