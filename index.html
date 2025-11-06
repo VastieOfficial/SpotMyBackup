@@ -551,6 +551,7 @@ codeChallenge = base64encode(hashed);
   if(accessToken!=null){
 
     token = getToken(accessToken);
+    accessToken = token;
     // fetch my public playlists
     $.ajax({
         url: 'https://api.spotify.com/v1/me',
