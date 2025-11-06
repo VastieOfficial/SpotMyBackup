@@ -152,9 +152,6 @@ function refreshProgress() {
 }
 
 function login() {
-    var width = 480, height = 640;
-    var left = (screen.width / 2) - (width / 2);
-    var top = (screen.height / 2) - (height / 2);
 
     var set = {
       client_id: conf.client_id,
@@ -166,7 +163,7 @@ function login() {
     authWindow = window.open(
         "https://accounts.spotify.com/authorize?" + urlEncodeSet(set),
         "Spotify",
-        'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left
+        'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=480, height=480, top=0, left=0'
     );
 }
 
