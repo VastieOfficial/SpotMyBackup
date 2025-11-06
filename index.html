@@ -171,11 +171,6 @@ function login() {
 }
 
 function authCallback(event){
-    if (event.origin !== conf.uri) {
-        console.log("config.uri missconfigured:");
-        console.log({ uri: conf.uri, origin: origin });
-        return;
-    }
     if (authWindow) {
         authWindow.close();
     }
