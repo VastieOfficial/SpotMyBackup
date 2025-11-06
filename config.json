@@ -1,7 +1,7 @@
 config = {
-"uri":"https://spotmybackup.github.io",
-"redirect_uri":"https://spotmybackup.github.io/login.html",
-"client_id":"d22a8316f27b4ebe8484adefd2f0774d",
+"uri":"https://vastieofficial.github.io/SpotMyBackup/",
+"redirect_uri":"https://vastieofficial.github.io/SpotMyBackup/login.html",
+"client_id":"2f452ad013f149c284b427d3486fc5da",
 "slowdown_import": 100,
 "slowdown_export": 100
 };
