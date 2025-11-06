@@ -151,7 +151,7 @@ function refreshProgress() {
     setTimeout(refreshProgress, 1000);
 }
 
-function login() {
+async function login() {
 
  hashed = await sha256(codeVerifier);
 codeChallenge = base64encode(hashed);
