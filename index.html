@@ -520,8 +520,6 @@ const base64encode = (input) => {
     .replace(/\+/g, '-')
     .replace(/\//g, '_');
 }
-const hashed = await sha256(codeVerifier);
-const codeChallenge = base64encode(hashed);
 const getToken = async code => {
 
   const url = "https://accounts.spotify.com/api/token";
@@ -544,9 +542,15 @@ const getToken = async code => {
 
   return response.access_token;
 }
-  
+  var hashed = null;
+  var codeChallenge = null;
   
 async function handleAuth(accessToken) { // fuck it, i'm not using jquery
+  if(codeChallenge == null){
+    
+ hashed = await sha256(codeVerifier);
+codeChallenge = base64encode(hashed);
+  }
   var set = {
       client_id: conf.client_id,
       redirect_uri: conf.redirect_uri,
