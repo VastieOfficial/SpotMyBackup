@@ -1,3 +1,8 @@
+# A side note
+This project is not maintained by it's original two authors, and they both suck ass. Because both use legacy Spotify API's, and won't work with other client ID's. 
+Code is written really badly too, I don't wanna bother even trying to make it look nice, cause it would be simpler to start fresh. While this contraption works, I don't care
+For sources see gh-pages branch, not master.
+
 # SpotMyBackup
 
 Backup and Restore your Spotify Playlists and "My Music".
